@@ -1,0 +1,10 @@
+ /* Estilos personalizados para la barra de navegación */
+ .navbar-custom {
+    background-color: #25282b; /* Cambia el color de fondo a tu preferencia */
+}
+.navbar-custom .navbar-brand {
+    color: #fff; /* Cambia el color del texto del logotipo */
+}
+.navbar-custom .navbar-nav .nav-link {
+    color: #fff; /* Cambia el color del texto de los enlaces de navegación */
+}
