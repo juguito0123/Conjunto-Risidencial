@@ -1,6 +1,10 @@
 # Conjunto-Risidencial
 Proyecto de Fundamentos de la Ingeniería de Software 
 
+INTERACCION DE PYTHON CON HTML:
+Se usara una libreia llamada "Flask", la cual permite que Python y Html se puedan ejecutar juntos.
+
+
 CONEXION A LA BASE DE DATOS:
 
 Se usará como gestor de base de datos “pgAdmin”, la cual trabaja con el lenguaje PostgresSql.
