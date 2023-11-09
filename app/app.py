@@ -1,4 +1,14 @@
 from flask import Flask, render_template, request,url_for, redirect, jsonify
+import psycopg2
+
+# Parámetros de conexión
+db_params = {
+    'dbname': 'Residencia',
+    'user': 'julian',
+    'password': '123',
+    'host': 'localhost',
+    'port': '5432'
+}
 
 app=Flask(__name__)
 
@@ -41,5 +51,19 @@ def nueva_pagina():
         # Página predeterminada o manejar otro caso
         return render_template('nueva_pagina_default.html', data=data)
     
+
+
+
+@app.route('/procesar_formulario', methods=['POST'])
+def procesar_formulario():
+    # Obtener los datos del formulario desde la solicitud JSON
+    datos_residente = request.json
+
+    # ... (resto del código para insertar en la base de datos)
+
+    # Devolver una respuesta JSON
+    return jsonify({"mensaje": "Datos del residente insertados correctamente"})
+
+
 if __name__== '__main__':
     app.run(debug=True, port=5000)
