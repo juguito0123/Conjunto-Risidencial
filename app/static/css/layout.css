@@ -8,3 +8,25 @@
 .navbar-custom .navbar-nav .nav-link {
     color: #fff; /* Cambia el color del texto de los enlaces de navegación */
 }
+ /* Estilos CSS personalizados */
+ body {
+    font-family: Arial, sans-serif;
+}
+.container {
+    padding: 20px;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+.juridica-form {
+    display: none; /* Oculta inicialmente el formulario para persona jurídica */
+}
+
+label{
+    padding: 5px;
+}
+
+button {
+    margin: 5px;
+}
