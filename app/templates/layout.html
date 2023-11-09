@@ -10,11 +10,11 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style/style.css" />
-    <title>Residencia Brisas de Tokio</title>
+    <title>{% block title %}{% endblock %}</title>
   </head>
   <body>
     <!-- Barra de navegación de Bootstrap -->
-    <nav class="navbar navbar-expand-lg navbar-custom">
+    <nav class="navbar navbar-expand-lg navbar-custom bg-dark-subtle">
       <a class="navbar-brand" href="#">Conjunto Resindecial Birsas de Tokio</a>
       <button
         class="navbar-toggler"
@@ -33,23 +33,24 @@
       >
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Residentes</a>
+            <a class="nav-link" href="{{ url_for('index') }}">Residentes</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Zonas-Comunes.html">Zonas Comunes</a>
+            <a class="nav-link" href="{{ url_for('Zonas_Comunes') }}"
+              >Zonas Comunes</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Facturaxion.html">Facturación</a>
+            <a class="nav-link" href="{{ url_for('Facturaxion') }}"
+              >Facturación</a
+            >
           </li>
         </ul>
       </div>
     </nav>
 
     <!-- Contenido de la página -->
-    <div class="container mt-4">
-      <h1>Zonas Comunes</h1>
-      <!-- Aquí puedes agregar el contenido de tu página web -->
-    </div>
+    {% block body %} {% endblock %}
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
