@@ -1,4 +1,17 @@
-{% extends "layout_residente.html" %}
-{% block botones %}
-
-                {% endblock %}
+{% extends "layout_residente.html" %} {% block botones %}
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>Vehiculo:</h1>
+      <input type="text" name="marca" placeholder="Pon la Marca del Vehiculo" />
+      <input
+        type="text"
+        name="modelo"
+        placeholder="Pon el Modelo del Vehiculo"
+      />
+      <input type="text" name="placa" placeholder="Pon la Placa del Vehiculo" />
+      <input type="text" name="dueño" placeholder="Pon el Id del Dueño" />
+    </div>
+  </div>
+</div>
+{% endblock %}
