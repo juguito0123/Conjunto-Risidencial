@@ -3,7 +3,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <h1>Vehiculo:</h1>
+      <h1 class="display-4 text-center fw-bold">Vehiculo:</h1>
       <form
         action="{% url 'create_vehiculo' %}"
         method="POST"
@@ -14,36 +14,49 @@
           type="text"
           name="marca"
           placeholder="Pon la Marca del Vehiculo"
+          class="form-control mb-2"
         />
         <input
           type="text"
           name="modelo"
           placeholder="Pon el Modelo del Vehiculo"
+          class="form-control mb-2"
         />
         <input
           type="text"
           name="placa"
           placeholder="Pon la Placa del Vehiculo"
+          class="form-control mb-2"
         />
-        <input type="text" name="dueño" placeholder="Pon el Id del Dueño" />
+        <input
+          type="text"
+          name="dueño"
+          placeholder="Pon el Id del Dueño"
+          class="form-control mb-2"
+        />
 
-        <button>Guardar</button>
+        <button class="btn btn-success">Guardar</button>
       </form>
     </div>
     <div class="col-md-8 offset-md-2">
       {% for Vehiculo in vehiculo %}
-      <div>
-        <h3>{{Vehiculo.propietario}}</h3>
-        <h4>{{Vehiculo.marca}}</h4>
-        <h4>{{Vehiculo.modelo}}</h4>
-        <h4>{{Vehiculo.placa}}</h4>
+      <div
+        class="card card-body text-black mt-2 mb-2 d-flex flex-row justify-content-between"
+      >
+        <div>
+          <h3>{{Vehiculo.propietario}}</h3>
+          <h4>{{Vehiculo.marca}}</h4>
+          <h4>{{Vehiculo.modelo}}</h4>
+          <h4>{{Vehiculo.placa}}</h4>
+        </div>
+
         <form action="{% url 'delete_vehiculo' Vehiculo.id %}" method="POST">
           {% csrf_token %}
-          <button>Borrar</button>
+          <button class="btn btn-danger btn-lg">Borrar</button>
         </form>
       </div>
       {% empty %}
-      <h1>No hay Vehiculos registrados</h1>
+      <h1 class="display-6 text-center mt-2">No hay Vehiculos registrados</h1>
       {% endfor %}
     </div>
   </div>
