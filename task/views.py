@@ -3,7 +3,8 @@ from .models import Propietario, Vehiculo
 
 # Create your views here.
 def list_tasks(request):
-    return render(request,'vehiculos.html')
+    vehiculos = Vehiculo.objects.all()
+    return render(request,'vehiculos.html',{"vehiculo": vehiculos})
 
 def create_vehiculo(request):
     if request.method == 'POST':
@@ -18,4 +19,9 @@ def create_vehiculo(request):
         # Crear el objeto Vehiculo con el objeto Propietario
         vehiculo = Vehiculo(marca=marca, modelo=modelo, placa=placa, propietario=propietario)
         vehiculo.save()
+    return redirect('/vehiculos/')
+
+def delete_vehiculo(request, vehiculo_id):
+    vehiculo = Vehiculo.objects.get(id=vehiculo_id)
+    vehiculo.delete()
     return redirect('/vehiculos/')
