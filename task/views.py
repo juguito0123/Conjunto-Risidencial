@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from .models import Apartamento, Propietario, Vehiculo, Visitante,Propiedad
+from .models import Apartamento, PJuridica, Propietario, Vehiculo, Visitante,Propiedad
 
 # Create your views here.
 
@@ -75,3 +75,20 @@ def delete_propiedad(request, inmueble_id):
     return redirect('/propiedad/')
 
 # Propiedad
+
+# PJuridica
+def pJuridica(request):
+    pjuridica = PJuridica.objects.all()
+    return render(request,'PJuridica.html',{"PJuridica": pjuridica})
+
+def create_pJuridica(request):
+    pjuridica = PJuridica(razonSocial=request.POST['razonSocial'], contacto=request.POST['contacto'], correo=request.POST['correo'], direccion=request.POST['direccion'])
+    pjuridica.save()
+    return redirect('/pjuridica/')
+
+def delete_pJuridica(request, pjuridica_id):
+    pjuridica = PJuridica.objects.get(id=pjuridica_id)
+    pjuridica.delete()
+    return redirect('/pjuridica/')
+
+# PJuridica

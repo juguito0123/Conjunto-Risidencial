@@ -5,7 +5,7 @@
     <div class="col-md-6 offset-md-3">
       <h1 class="display-4 text-center fw-bold">Persona Juridica:</h1>
       <form
-        action="{% url 'create_propiedad' %}"
+        action="{% url 'create_pJuridica' %}"
         method="POST"
         class="card card-body bg-secondary"
       >
@@ -40,25 +40,25 @@
       </form>
     </div>
     <div class="col-md-8 offset-md-2">
-      {% for inmueble in propiedad %}
+      {% for Pjuridica in pjuridica %}
       <div
         class="card card-body text-black mt-2 mb-2 d-flex flex-row justify-content-between"
       >
         <div>
-          <h3>{{inmueble.propietario}}</h3>
-          <h4>{{inmueble.apartamento}}</h4>
-          <h4>{{inmueble.residente}}</h4>
-          <h4>{{inmueble.placa}}</h4>
+          <h3>{{Pjuridica.razonSocial}}</h3>
+          <h4>{{Pjuridica.contacto}}</h4>
+          <h4>{{Pjuridica.correo}}</h4>
+          <h4>{{Pjuridica.direccion}}</h4>
         </div>
 
-        <form action="{% url 'delete_propiedad' inmueble.id %}" method="POST">
+        <form action="{% url 'delete_pJuridica' Pjuridica.id %}" method="POST">
           {% csrf_token %}
           <button class="btn btn-danger btn-lg">Borrar</button>
         </form>
       </div>
         {% empty %}
         <h1 class="display-6 text-center mt-2">
-          No hay Visitantes registrados
+          No hay Personas Juridicas registradas
         </h1>
         {% endfor %}
       </div>

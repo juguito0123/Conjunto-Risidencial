@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import list_tasks,create_vehiculo, delete_vehiculo,visitas,create_visita,delete_visita,propiedad,create_propiedad,delete_propiedad
+from .views import create_pJuridica, delete_pJuridica, list_tasks,create_vehiculo, delete_vehiculo, pJuridica,visitas,create_visita,delete_visita,propiedad,create_propiedad,delete_propiedad
 
 urlpatterns = [
     path('vehiculos/',list_tasks),
@@ -13,4 +13,8 @@ urlpatterns = [
     path('propiedad/',propiedad),
     path('create_propiedad/',create_propiedad, name='create_propiedad'),
     path('delete_propiedad/<int:inmueble_id>/',delete_propiedad, name='delete_propiedad'),
+    # pJuridica
+    path('pjuridica/',pJuridica),
+    path('create_pJuridica/',create_pJuridica, name='create_pJuridica'),
+    path('delete_pJuridica/<int:pjuridica_id>/',delete_pJuridica, name='delete_pJuridica'),
 ]
