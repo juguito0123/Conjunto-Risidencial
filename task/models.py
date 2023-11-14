@@ -54,6 +54,12 @@ class PQRSD(models.Model):
     tipoPQRSD = models.CharField(max_length=100) 
     descripcion = models.CharField(max_length=250)
     correo = models.CharField(max_length=250)
+    
+# ZonasC
+class ZonasC(models.Model):
+    Nombre = models.CharField(max_length=250)
+    Horario = models.CharField(max_length=100)
+    Descripcion = models.CharField(max_length=250)
 
 
     

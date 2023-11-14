@@ -1,0 +1,29 @@
+{% extends "layout_zona.html" %} {% block botones %}
+
+<div class="container">
+  <div class="row">
+    <h1 class="display-4 text-center fw-bold">Zonas Comunes:</h1>
+
+    {% csrf_token %}
+
+    <div class="col-md-8 offset-md-2">
+      {% for zonas in Zona %}
+      <div
+        class="card card-body text-black mt-2 mb-2 d-flex flex-row justify-content-between"
+      >
+        <div>
+          <h3 class="text-danger font-weight-bold">Id:</h3>
+          <h4>{{zonas.id}}</h4>
+          <h3 class="text-danger font-weight-bold">Nombre de la Zona comun:</h3>
+          <h4>{{zonas.Nombre}}</h4>
+          <h3 class="text-danger font-weight-bold">Horario de uso:</h3>
+          <h4>{{zonas.Horario}}</h4>
+          <h3 class="text-danger font-weight-bold">Descripcion:</h3>
+          <h4>{{zonas.Descripcion}}</h4>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endblock %}
+</div>

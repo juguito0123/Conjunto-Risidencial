@@ -17,7 +17,7 @@
   <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
-      <a class="navbar-brand text-light" href="#">Birsas de Tokio</a>
+      <a class="navbar-brand text-light" href="#">Brisas de Tokio</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -35,10 +35,12 @@
       >
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link text-light" href="#">Residentes</a>
+            <a class="nav-link text-light" href="{% url 'residente' %}"
+              >Residentes</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link text-primary" href="#">Zonas Comunes</a>
+            <a class="nav-link text-primary" href="{% url 'zonas' %}">Zonas Comunes</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-light" href="#">Facturación</a>
@@ -54,13 +56,21 @@
         <div class="col-md-2">
           <!-- Botones -->
           <div class="d-flex flex-column">
-            <button type="button" class="btn btn-primary mb-2 mx-2">
-              Botón 1
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 mx-2">
-              Botón 2
-            </button>
-            <button type="button" class="btn btn-info mx-2">Botón 3</button>
+            <a
+              href="{% url 'zonas' %}"
+              type="button"
+              class="btn btn-secondary mb-2 mx-2"
+            >
+              Zonas Comunes
+            </a>
+            <a
+              href="{% url 'visitas' %}"
+              type="button"
+              class="btn btn-secondary mb-2 mx-2"
+            >
+              Reservas
+            </a>
+            
           </div>
           <!-- Botones -->
         </div>

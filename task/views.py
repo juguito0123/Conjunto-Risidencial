@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from .models import PQRSD, Apartamento, PJuridica, PNatural, Propietario, Vehiculo, Visitante,Propiedad
+from .models import PQRSD, Apartamento, PJuridica, PNatural, Propietario, Vehiculo, Visitante,Propiedad, ZonasC
 
 # Create your views here.
 
@@ -135,3 +135,11 @@ def delete_pqrsd(request, pqrsd_id):
     return redirect('/pqrsd/')
 
 # PQRSD
+
+
+# Zonas Comunes
+def zonas(request):
+    zonas = ZonasC.objects.all()
+    return render(request,'zonas.html',{"Zona": zonas})
+
+# Zonas Comunes

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import create_pJuridica, create_pNatural, create_pqrsd, delete_pJuridica, delete_pNatural, delete_pqrsd, list_tasks,create_vehiculo, delete_vehiculo, pJuridica, pNatural, pqrsd, residente,visitas,create_visita,delete_visita,propiedad,create_propiedad,delete_propiedad
+from .views import create_pJuridica, create_pNatural, create_pqrsd, delete_pJuridica, delete_pNatural, delete_pqrsd, list_tasks,create_vehiculo, delete_vehiculo, pJuridica, pNatural, pqrsd, residente,visitas,create_visita,delete_visita,propiedad,create_propiedad,delete_propiedad, zonas
 
 urlpatterns = [
     # Residentes
@@ -28,4 +28,6 @@ urlpatterns = [
     path('pqrsd/',pqrsd, name='pqrsd'),
     path('create_pqrsd/',create_pqrsd, name='create_pqrsd'),
     path('delete_pqrsd/<int:pqrsd_id>/',delete_pqrsd, name='delete_pqrsd'),
+    # Zonas Comunes
+    path('zonas/',zonas, name='zonas'),
 ]
