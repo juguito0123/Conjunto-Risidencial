@@ -5,7 +5,7 @@
       <div class="col-md-6 offset-md-3">
         <h1 class="display-4 text-center fw-bold">Reservar Zonas Comunes:</h1>
         <form
-          action="{% url 'create_propiedad' %}"
+          action="{% url 'reserva' %}"
           method="POST"
           class="card card-body bg-secondary"
         >
@@ -65,7 +65,7 @@
         </div>
           {% empty %}
           <h1 class="display-6 text-center mt-2">
-            No hay Reservas registrados
+            No hay Reservas registradas
           </h1>
           {% endfor %}
         </div>

@@ -150,8 +150,22 @@ def reserva(request):
     return render(request,'reservas.html',{"Reserva": reserva})
 
 def create_reserva(request):
-    reserva = Reserva(zona=request.POST['zona'], idApartamento=request.POST['idApartamento'], dia=request.POST['dia'], hora=request.POST['hora'])
-    reserva.save()
+    if request.method == 'POST':
+        zona_id = request.POST['zona']
+        id_apartamento = request.POST['idApartamento']
+        dia = request.POST['dia']
+        hora = request.POST['hora']
+
+        # Obtener el objeto ZonasC correspondiente al ID proporcionado
+        zona = get_object_or_404(ZonasC, id=zona_id)
+         # Obtén la instancia de Apartamento
+        apartamento = get_object_or_404(Apartamento, id=id_apartamento)
+
+
+        # Crear el objeto Reserva con el objeto ZonasC
+        reserva = Reserva(zona=zona, idApartamento=apartamento, dia=dia, hora=hora)
+        reserva.save()
+
     return redirect('/reserva/')
 
 def delete_reserva(request, reserva_id):
@@ -159,4 +173,4 @@ def delete_reserva(request, reserva_id):
     reserva.delete()
     return redirect('/reserva/')
 
-# PQRSD
+# Reserva
