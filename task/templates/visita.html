@@ -5,33 +5,33 @@
     <div class="col-md-6 offset-md-3">
       <h1 class="display-4 text-center fw-bold">Visita:</h1>
       <form
-        action="{% url 'create_vehiculo' %}"
+        action="{% url 'create_visita' %}"
         method="POST"
         class="card card-body bg-secondary"
       >
         {% csrf_token %}
         <input
           type="text"
-          name="marca"
-          placeholder="Pon la Marca del Vehiculo"
+          name="apartamento"
+          placeholder="#Apartamento"
           class="form-control mb-2"
         />
         <input
           type="text"
-          name="modelo"
-          placeholder="Pon el Modelo del Vehiculo"
+          name="torre"
+          placeholder="#Torre"
           class="form-control mb-2"
         />
         <input
           type="text"
-          name="placa"
-          placeholder="Pon la Placa del Vehiculo"
+          name="nombreR"
+          placeholder="Nombre del Residente"
           class="form-control mb-2"
         />
         <input
           type="text"
-          name="dueño"
-          placeholder="Pon el Id del Dueño"
+          name="nombreV"
+          placeholder="Nombre del Visitante"
           class="form-control mb-2"
         />
 
@@ -39,26 +39,29 @@
       </form>
     </div>
     <div class="col-md-8 offset-md-2">
-      {% for Vehiculo in vehiculo %}
+      {% for visitas in visitante %}
       <div
         class="card card-body text-black mt-2 mb-2 d-flex flex-row justify-content-between"
       >
         <div>
-          <h3>{{Vehiculo.propietario}}</h3>
-          <h4>{{Vehiculo.marca}}</h4>
-          <h4>{{Vehiculo.modelo}}</h4>
-          <h4>{{Vehiculo.placa}}</h4>
+          <h3>{{visitas.apartamento}}</h3>
+          <h4>{{visitas.torre}}</h4>
+          <h4>{{visitas.nombreR}}</h4>
+          <h4>{{visitas.nombreV}}</h4>
         </div>
 
-        <form action="{% url 'delete_vehiculo' Vehiculo.id %}" method="POST">
+        <form action="{% url 'delete_visita' visitas.id %}" method="POST">
           {% csrf_token %}
           <button class="btn btn-danger btn-lg">Borrar</button>
         </form>
       </div>
-      {% empty %}
-      <h1 class="display-6 text-center mt-2">No hay Vehiculos registrados</h1>
-      {% endfor %}
+        {% empty %}
+        <h1 class="display-6 text-center mt-2">
+          No hay Visitantes registrados
+        </h1>
+        {% endfor %}
+      </div>
     </div>
   </div>
+  {% endblock %}
 </div>
-{% endblock %}
