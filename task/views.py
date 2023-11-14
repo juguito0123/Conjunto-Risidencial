@@ -174,3 +174,8 @@ def delete_reserva(request, reserva_id):
     return redirect('/reserva/')
 
 # Reserva
+
+# Info
+def Info(request):
+    return render(request,'infoF.html')
+# Info

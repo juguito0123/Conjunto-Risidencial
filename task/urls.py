@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import create_pJuridica, create_pNatural, create_pqrsd, create_reserva, delete_pJuridica, delete_pNatural, delete_pqrsd, delete_reserva, list_tasks,create_vehiculo, delete_vehiculo, pJuridica, pNatural, pqrsd, reserva, residente,visitas,create_visita,delete_visita,propiedad,create_propiedad,delete_propiedad, zonas
+from .views import Info, create_pJuridica, create_pNatural, create_pqrsd, create_reserva, delete_pJuridica, delete_pNatural, delete_pqrsd, delete_reserva, list_tasks,create_vehiculo, delete_vehiculo, pJuridica, pNatural, pqrsd, reserva, residente,visitas,create_visita,delete_visita,propiedad,create_propiedad,delete_propiedad, zonas
 
 urlpatterns = [
     # Residentes
@@ -34,4 +34,6 @@ urlpatterns = [
     path('reserva/',reserva, name='reserva'),
     path('create_reserva/',create_reserva, name='create_reserva'),
     path('delete_reserva/<int:reserva_id>/',delete_reserva, name='delete_reserva'),
+    # Info
+    path('info/',Info, name='info'),
 ]
