@@ -62,9 +62,9 @@ class ZonasC(models.Model):
     
 #Reservar
 class Reserva(models.Model):
-    zona = models.ForeignKey(ZonasC, on_delete=models.CASCADE)
-    idApartamento = models.ForeignKey(Apartamento, on_delete=models.CASCADE)
-    dia = models.DateField()
+    zona = models.CharField(max_length=250)
+    idApartamento = models.CharField(max_length=250)
+    dia = models.CharField(max_length=250)
     hora = models.CharField(max_length=250)
     
 

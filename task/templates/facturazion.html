@@ -3,14 +3,18 @@
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <h1 class="display-4 text-center fw-bold">FACTURA:</h1>
-      <form id="facturaForm" class="card card-body bg-secondary">
+      <form
+        id="facturaForm"
+        href="{% url 'fac' %}"
+        class="card card-body bg-secondary"
+      >
         {% csrf_token %}
         <p class="text-white font-weight-bold">Area:</p>
         <input
           type="text"
           name="area"
           id="areaInput"
-          placeholder="Ingrese el area de su propiedad en m cuadrados"
+          placeholder="Ingrese el área de su propiedad en m cuadrados"
           class="form-control mb-2"
         />
         <p class="text-white font-weight-bold">Fecha:</p>
@@ -31,7 +35,7 @@
         <button
           type="button"
           class="btn btn-success"
-          onclick="guardarFactura()"
+          onclick="calcularYGenerarPDF()"
         >
           Guardar
         </button>
@@ -39,5 +43,45 @@
     </div>
   </div>
 </div>
+<script>
+  function calcularYGenerarPDF() {
+    // Obtén el valor del área
+    var area = document.getElementById("areaInput").value;
 
+    // Validación básica
+    if (!area) {
+      alert("Debes proporcionar un valor de área válido");
+      return;
+    }
+
+    // Realiza el cálculo
+    var areaFloat = parseFloat(area);
+    var resultado = (70000000 / 40000) * areaFloat;
+
+    // Puedes enviar los datos al servidor utilizando AJAX
+    // Aquí se utiliza fetch para enviar los datos al servidor, ajusta según tu backend
+    fetch('{% url "fac" %}', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": "{{ csrf_token }}",
+      },
+      body: JSON.stringify({ area: area, resultado: resultado }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error en la solicitud al servidor");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Aquí puedes manejar la respuesta del servidor
+        alert("PDF generado correctamente");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        alert("Error al generar el PDF");
+      });
+  }
+</script>
 {% endblock %}
