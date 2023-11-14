@@ -12,26 +12,26 @@
         {% csrf_token %}
         <input
           type="text"
-          name="propietario"
-          placeholder="Nombre del propietario"
+          name="razonSocial"
+          placeholder="Razon Social"
           class="form-control mb-2"
         />
         <input
           type="text"
-          name="apartamento"
-          placeholder="#apartamento"
+          name="contacto"
+          placeholder="#contacto"
           class="form-control mb-2"
         />
         <input
           type="text"
-          name="residente"
-          placeholder="Nombre del Residente"
+          name="correo"
+          placeholder="Correo Electronico"
           class="form-control mb-2"
         />
         <input
           type="text"
-          name="placa"
-          placeholder="Si tiene carro ponga la placa"
+          name="direccion"
+          placeholder="Direccion"
           value="No tiene"
           class="form-control mb-2"
         />
@@ -40,18 +40,18 @@
       </form>
     </div>
     <div class="col-md-8 offset-md-2">
-      {% for Pjuridica in pjuridica %}
+      {% for pjuridica in PJuridica %}
       <div
         class="card card-body text-black mt-2 mb-2 d-flex flex-row justify-content-between"
       >
         <div>
-          <h3>{{Pjuridica.razonSocial}}</h3>
-          <h4>{{Pjuridica.contacto}}</h4>
-          <h4>{{Pjuridica.correo}}</h4>
-          <h4>{{Pjuridica.direccion}}</h4>
+          <h3>{{pjuridica.razonSocial}}</h3>
+          <h4>{{pjuridica.contacto}}</h4>
+          <h4>{{pjuridica.correo}}</h4>
+          <h4>{{pjuridica.direccion}}</h4>
         </div>
 
-        <form action="{% url 'delete_pJuridica' Pjuridica.id %}" method="POST">
+        <form action="{% url 'delete_pJuridica' pjuridica.id %}" method="POST">
           {% csrf_token %}
           <button class="btn btn-danger btn-lg">Borrar</button>
         </form>
