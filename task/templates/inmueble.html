@@ -1,0 +1,68 @@
+{% extends "layout_residente.html" %} {% block botones %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1 class="display-4 text-center fw-bold">Inmueble:</h1>
+      <form
+        action="{% url 'create_propiedad' %}"
+        method="POST"
+        class="card card-body bg-secondary"
+      >
+        {% csrf_token %}
+        <input
+          type="text"
+          name="propietario"
+          placeholder="Nombre del propietario"
+          class="form-control mb-2"
+        />
+        <input
+          type="text"
+          name="apartamento"
+          placeholder="#apartamento"
+          class="form-control mb-2"
+        />
+        <input
+          type="text"
+          name="residente"
+          placeholder="Nombre del Residente"
+          class="form-control mb-2"
+        />
+        <input
+          type="text"
+          name="placa"
+          placeholder="Si tiene carro ponga la placa"
+          value="No tiene"
+          class="form-control mb-2"
+        />
+
+        <button class="btn btn-success">Guardar</button>
+      </form>
+    </div>
+    <div class="col-md-8 offset-md-2">
+      {% for inmueble in propiedad %}
+      <div
+        class="card card-body text-black mt-2 mb-2 d-flex flex-row justify-content-between"
+      >
+        <div>
+          <h3>{{inmueble.propietario}}</h3>
+          <h4>{{inmueble.apartamento}}</h4>
+          <h4>{{inmueble.residente}}</h4>
+          <h4>{{inmueble.placa}}</h4>
+        </div>
+
+        <form action="{% url 'delete_propiedad' inmueble.id %}" method="POST">
+          {% csrf_token %}
+          <button class="btn btn-danger btn-lg">Borrar</button>
+        </form>
+      </div>
+        {% empty %}
+        <h1 class="display-6 text-center mt-2">
+          No hay Visitantes registrados
+        </h1>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</div>

@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from .models import Propietario, Vehiculo, Visitante
+from .models import Apartamento, Propietario, Vehiculo, Visitante,Propiedad
 
 # Create your views here.
 
@@ -45,3 +45,33 @@ def delete_visita(request, visita_id):
     return redirect('/visitas/')
 
 # Visitas
+
+# Propiedad
+def propiedad(request):
+    propiedad = Propiedad.objects.all()
+    return render(request,'inmueble.html',{"propiedad": propiedad})
+
+def create_propiedad(request):
+    if request.method == 'POST':
+        # Suponiendo que 'apartamento' es una clave externa al modelo Apartamento
+        apartamento_id = request.POST.get('apartamento')
+        apartamento = Apartamento.objects.get(pk=apartamento_id)
+
+        # Crear la instancia de Propiedad con el apartamento asignado
+        propiedad = Propiedad(
+            propietario=request.POST['propietario'],
+            apartamento=apartamento,
+            residente=request.POST['residente'],
+            placa=request.POST['placa']
+        )
+        
+        # Guardar la instancia de Propiedad en la base de datos
+        propiedad.save()
+    return redirect('/propiedad/')
+
+def delete_propiedad(request, inmueble_id):
+    propiedad = Propiedad.objects.get(id=inmueble_id)
+    propiedad.delete()
+    return redirect('/propiedad/')
+
+# Propiedad

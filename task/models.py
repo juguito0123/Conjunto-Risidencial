@@ -26,6 +26,12 @@ class Visitante(models.Model):
     nombreR = models.CharField(max_length=100)
     nombreV = models.CharField(max_length=100)
     
+# Propiedad 
+class Propiedad(models.Model):
+    propietario = models.CharField(max_length=100)
+    apartamento = models.ForeignKey(Apartamento, on_delete=models.CASCADE) 
+    residente = models.CharField(max_length=100)
+    placa = models.CharField(max_length=100)
 
     
     
