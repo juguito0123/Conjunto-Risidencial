@@ -179,3 +179,8 @@ def delete_reserva(request, reserva_id):
 def Info(request):
     return render(request,'infoF.html')
 # Info
+
+#Factura
+def fac(request):
+    return render(request,'facturazion.html')
+#Factura

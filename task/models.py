@@ -1,6 +1,5 @@
 from django.db import models
 
-
 # Create your models here.
     # Tabla Propietario
 class Propietario(models.Model):
@@ -68,7 +67,6 @@ class Reserva(models.Model):
     dia = models.DateField()
     hora = models.CharField(max_length=250)
     
-
 
 
 
