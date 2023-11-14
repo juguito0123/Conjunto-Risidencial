@@ -33,5 +33,12 @@ class Propiedad(models.Model):
     residente = models.CharField(max_length=100)
     placa = models.CharField(max_length=100)
 
+# Persona Juridica 
+class PJuridica(models.Model):
+    razonSocial = models.CharField(max_length=250)
+    contacto = models.CharField(max_length=100) 
+    correo = models.CharField(max_length=100)
+    direccion = models.CharField(max_length=100)
+
     
     
