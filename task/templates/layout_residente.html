@@ -54,33 +54,55 @@
         <div class="col-md-2">
           <!-- Botones -->
           <div class="d-flex flex-column">
-            <button type="button" class="btn btn-secondary mb-2 mx-2">
-              Residentes
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 mx-2">
+            <a
+              href="{% url 'list_tasks' %}"
+              type="button"
+              class="btn btn-secondary mb-2 mx-2"
+            >
               Vehiculos
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 mx-2">
-              Reservas
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 mx-2">
+            </a>
+            <a
+              href="{% url 'visitas' %}"
+              type="button"
+              class="btn btn-secondary mb-2 mx-2"
+            >
+              Visitas
+            </a>
+            <a
+              href="{% url 'list_tasks' %}"
+              type="button"
+              class="btn btn-secondary mb-2 mx-2"
+            >
               Visitantes
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 mx-2">
+            </a>
+            <a
+              href="{% url 'propiedad' %}"
+              type="button"
+              class="btn btn-secondary mb-2 mx-2"
+            >
               Inmuebles
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 mx-2">
+            </a>
+            <a
+              href="{% url 'PNatural' %}"
+              type="button"
+              class="btn btn-secondary mb-2 mx-2"
+            >
               Personas Naturales
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 mx-2">
-              Botón 2
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 mx-2">
-              Botón 2
-            </button>
-            <button type="button" class="btn btn-secondary mb-2 mx-2">
-              Botón 2
-            </button>
+            </a>
+            <a
+              href="{% url 'pJuridica' %}"
+              type="button"
+              class="btn btn-secondary mb-2 mx-2"
+            >
+              Personas Juridicas
+            </a>
+            <a
+              href="{% url 'list_tasks' %}"
+              type="button"
+              class="btn btn-secondary mb-2 mx-2"
+            >
+              PQRSD
+            </a>
           </div>
           <!-- Botones -->
         </div>
