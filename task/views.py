@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from .models import PQRSD, Apartamento, PJuridica, PNatural, Propietario, Vehiculo, Visitante,Propiedad, ZonasC
+from .models import PQRSD, Apartamento, PJuridica, PNatural, Propietario, Reserva, Vehiculo, Visitante,Propiedad, ZonasC
 
 # Create your views here.
 
@@ -143,3 +143,20 @@ def zonas(request):
     return render(request,'zonas.html',{"Zona": zonas})
 
 # Zonas Comunes
+
+# Reserva
+def reserva(request):
+    reserva = Reserva.objects.all()
+    return render(request,'reservas.html',{"Reserva": reserva})
+
+def create_reserva(request):
+    reserva = Reserva(zona=request.POST['zona'], idApartamento=request.POST['idApartamento'], dia=request.POST['dia'], hora=request.POST['hora'])
+    reserva.save()
+    return redirect('/reserva/')
+
+def delete_reserva(request, reserva_id):
+    reserva = Reserva.objects.get(id=reserva_id)
+    reserva.delete()
+    return redirect('/reserva/')
+
+# PQRSD

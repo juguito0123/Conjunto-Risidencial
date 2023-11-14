@@ -60,6 +60,16 @@ class ZonasC(models.Model):
     Nombre = models.CharField(max_length=250)
     Horario = models.CharField(max_length=100)
     Descripcion = models.CharField(max_length=250)
+    
+#Reservar
+class Reserva(models.Model):
+    zona = models.ForeignKey(Apartamento, on_delete=models.CASCADE)
+    idApartamento = models.CharField(max_length=10)
+    dia = models.DateField()
+    hora = models.CharField(max_length=250)
+    
+
+
 
 
     

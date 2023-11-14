@@ -1,0 +1,75 @@
+{% extends "layout_zona.html" %} {% block botones %}
+
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h1 class="display-4 text-center fw-bold">Reservar Zonas Comunes:</h1>
+        <form
+          action="{% url 'create_propiedad' %}"
+          method="POST"
+          class="card card-body bg-secondary"
+        >
+          {% csrf_token %}
+          <p class="text-white font-weight-bold">Id de la Zona Comun:</p>
+          <input
+            type="text"
+            name="zona"
+            placeholder="Id Zona"
+            class="form-control mb-2"
+          />
+          <p class="text-white font-weight-bold">Id Apartamento:</p>
+          <input
+            type="text"
+            name="idApartamento"
+            placeholder="Id Apartamento"
+            class="form-control mb-2"
+          />
+          <p class="text-white font-weight-bold">Fecha:</p>
+          <input
+            type="text"
+            name="dia"
+            placeholder="AAAA-mm-dd"
+            class="form-control mb-2"
+          />
+          <p class="text-white font-weight-bold">Hora para reservar:</p>
+          <input
+            type="text"
+            name="hora"
+            placeholder="hh:mm"
+            class="form-control mb-2"
+          />
+  
+          <button class="btn btn-success">Guardar</button>
+        </form>
+      </div>
+      <div class="col-md-8 offset-md-2">
+        {% for reserva in Reserva %}
+        <div
+          class="card card-body text-black mt-2 mb-2 d-flex flex-row justify-content-between"
+        >
+          <div>
+            <h3 class="text-danger  font-weight-bold">Zona Comun:</h3>
+            <h4>{{reserva.zona}}</h4>
+            <h3 class="text-danger  font-weight-bold">Apartamento:</h3>
+            <h4>{{reserva.idApartamento}}</h4>
+            <h3 class="text-danger  font-weight-bold">Fecha:</h3>
+            <h4>{{reserva.dia}}</h4>
+            <h3 class="text-danger  font-weight-bold">Hora:</h3>
+            <h4>{{reserva.hora}}</h4>
+          </div>
+  
+          <form action="{% url 'delete_reserva' reserva.id %}" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-danger btn-lg">Borrar</button>
+          </form>
+        </div>
+          {% empty %}
+          <h1 class="display-6 text-center mt-2">
+            No hay Reservas registrados
+          </h1>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+</div>
