@@ -1,0 +1,67 @@
+{% extends "layout_residente.html" %} {% block botones %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1 class="display-4 text-center fw-bold">Persona Natural:</h1>
+      <form
+        action="{% url 'create_pNatural' %}"
+        method="POST"
+        class="card card-body bg-secondary"
+      >
+        {% csrf_token %}
+        <input
+          type="text"
+          name="tIdentificacion"
+          placeholder="Tipo de Identificacion"
+          class="form-control mb-2"
+        />
+        <input
+          type="text"
+          name="nombres"
+          placeholder="Nombres"
+          class="form-control mb-2"
+        />
+        <input
+          type="text"
+          name="apellidos"
+          placeholder="Apellidos"
+          class="form-control mb-2"
+        />
+        <input
+          type="text"
+          name="identificacion"
+          placeholder="#identificacion"
+          class="form-control mb-2"
+        />
+
+        <button class="btn btn-success">Guardar</button>
+      </form>
+    </div>
+    <div class="col-md-8 offset-md-2">
+      {% for pnatural in PNatural %}
+      <div
+        class="card card-body text-black mt-2 mb-2 d-flex flex-row justify-content-between"
+      >
+        <div>
+          <h3>{{pnatural.tIdentificacion}}</h3>
+          <h4>{{pnatural.nombres}}</h4>
+          <h4>{{pnatural.apellidos}}</h4>
+          <h4>{{pnatural.identificacion}}</h4>
+        </div>
+
+        <form action="{% url 'delete_pNatural' pnatural.id %}" method="POST">
+          {% csrf_token %}
+          <button class="btn btn-danger btn-lg">Borrar</button>
+        </form>
+      </div>
+        {% empty %}
+        <h1 class="display-6 text-center mt-2">
+          No hay Personas Naturales registradas
+        </h1>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</div>

@@ -40,5 +40,12 @@ class PJuridica(models.Model):
     correo = models.CharField(max_length=100)
     direccion = models.CharField(max_length=100)
 
+# Persona Natural
+class PNatural(models.Model):
+    tIdentificacion = models.CharField(max_length=250)
+    nombres = models.CharField(max_length=100) 
+    apellidos = models.CharField(max_length=100)
+    identificacion = models.CharField(max_length=100)
+
     
     

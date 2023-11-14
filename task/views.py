@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from .models import Apartamento, PJuridica, Propietario, Vehiculo, Visitante,Propiedad
+from .models import Apartamento, PJuridica, PNatural, Propietario, Vehiculo, Visitante,Propiedad
 
 # Create your views here.
 
@@ -92,3 +92,20 @@ def delete_pJuridica(request, pjuridica_id):
     return redirect('/pjuridica/')
 
 # PJuridica
+
+# PNatural
+def pNatural(request):
+    pnatural = PNatural.objects.all()
+    return render(request,'PNatural.html',{"PNatural": pnatural})
+
+def create_pNatural(request):
+    pnatural = PNatural(tIdentificacion=request.POST['tIdentificacion'], nombres=request.POST['nombres'], apellidos=request.POST['apellidos'], identificacion=request.POST['identificacion'])
+    pnatural.save()
+    return redirect('/pnatural/')
+
+def delete_pNatural(request, pnatural_id):
+    pnatural = PNatural.objects.get(id=pnatural_id)
+    pnatural.delete()
+    return redirect('/pnatural/')
+
+# PNatural
