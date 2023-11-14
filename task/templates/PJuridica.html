@@ -10,24 +10,28 @@
         class="card card-body bg-secondary"
       >
         {% csrf_token %}
+        <p class="text-white font-weight-bold">Razon Social:</p>
         <input
           type="text"
           name="razonSocial"
           placeholder="Razon Social"
           class="form-control mb-2"
         />
+        <p class="text-white font-weight-bold">Numero de Contacto:</p>
         <input
           type="text"
           name="contacto"
           placeholder="#contacto"
           class="form-control mb-2"
         />
+        <p class="text-white font-weight-bold">Correo Electronico:</p>
         <input
-          type="text"
+          type="email"
           name="correo"
           placeholder="Correo Electronico"
           class="form-control mb-2"
         />
+        <p class="text-white font-weight-bold">Direccion:</p>
         <input
           type="text"
           name="direccion"
@@ -45,9 +49,13 @@
         class="card card-body text-black mt-2 mb-2 d-flex flex-row justify-content-between"
       >
         <div>
-          <h3>{{pjuridica.razonSocial}}</h3>
+          <h3 class="text-danger  font-weight-bold">Razon Social:</h3>
+          <h4>{{pjuridica.razonSocial}}</h4>
+          <h3 class="text-danger  font-weight-bold">Numero de Contacto:</h3>
           <h4>{{pjuridica.contacto}}</h4>
+          <h3 class="text-danger  font-weight-bold">Email:</h3>
           <h4>{{pjuridica.correo}}</h4>
+          <h3 class="text-danger  font-weight-bold">Direccion:</h3>
           <h4>{{pjuridica.direccion}}</h4>
         </div>
 

@@ -10,30 +10,35 @@
         class="card card-body bg-secondary"
       >
         {% csrf_token %}
+        <p class="text-white font-weight-bold">Tipo de Identificacion:</p>
         <input
           type="text"
           name="tIdentificacion"
           placeholder="Tipo de Identificacion"
           class="form-control mb-2"
         />
+        <p class="text-white font-weight-bold">Numero de Identificacion:</p>
         <input
           type="text"
           name="identificacion"
           placeholder="#identificacion"
           class="form-control mb-2"
         />
+        <p class="text-white font-weight-bold">Tipo PQRSD:</p>
         <input
           type="text"
           name="tipoPQRSD"
           placeholder="Tipo PQRSD"
           class="form-control mb-2"
         />
+        <p class="text-white font-weight-bold">Descripcion:</p>
         <textarea
           name="descripcion"
           rows="5"
           placeholder="Descripcion"
           class="form-control mb-2"
         ></textarea>
+        <p class="text-white font-weight-bold">Correo Electronico:</p>
         <input
           type="email"
           name="correo"
@@ -50,10 +55,17 @@
         class="card card-body text-black mt-2 mb-2 d-flex flex-row justify-content-between"
       >
         <div>
-          <h3>{{pqrsd.tIdentificacion}}</h3>
+          <h3 class="text-danger font-weight-bold">Tipo de Identificacion:</h3>
+          <h4>{{pqrsd.tIdentificacion}}</h4>
+          <h3 class="text-danger font-weight-bold">
+            Numero de Identificacion:
+          </h3>
           <h4>{{pqrsd.identificacion}}</h4>
+          <h3 class="text-danger font-weight-bold">Tipo PQRSD:</h3>
           <h4>{{pqrsd.tipoPQRSD}}</h4>
+          <h3 class="text-danger font-weight-bold">Descripcion:</h3>
           <h6>{{pqrsd.descripcion}}</h6>
+          <h3 class="text-danger font-weight-bold">Correo Electronico:</h3>
           <h4>{{pqrsd.correo}}</h4>
         </div>
 

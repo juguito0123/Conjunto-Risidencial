@@ -10,24 +10,28 @@
         class="card card-body bg-secondary"
       >
         {% csrf_token %}
+        <p class="text-white font-weight-bold">Tipo de Identificacion:</p>
         <input
           type="text"
           name="tIdentificacion"
           placeholder="Tipo de Identificacion"
           class="form-control mb-2"
         />
+        <p class="text-white font-weight-bold">Nombres:</p>
         <input
           type="text"
           name="nombres"
           placeholder="Nombres"
           class="form-control mb-2"
         />
+        <p class="text-white font-weight-bold">Apellidos:</p>
         <input
           type="text"
           name="apellidos"
           placeholder="Apellidos"
           class="form-control mb-2"
         />
+        <p class="text-white font-weight-bold">Numero de Identificacion:</p>
         <input
           type="text"
           name="identificacion"
@@ -44,9 +48,13 @@
         class="card card-body text-black mt-2 mb-2 d-flex flex-row justify-content-between"
       >
         <div>
-          <h3>{{pnatural.tIdentificacion}}</h3>
+          <h3 class="text-danger  font-weight-bold">Tipo de Identificacion:</h3>
+          <h4>{{pnatural.tIdentificacion}}</h4>
+          <h3 class="text-danger  font-weight-bold">Nombres:</h3>
           <h4>{{pnatural.nombres}}</h4>
+          <h3 class="text-danger  font-weight-bold">Apellidos:</h3>
           <h4>{{pnatural.apellidos}}</h4>
+          <h3 class="text-danger  font-weight-bold">Numero de Identificacion:</h3>
           <h4>{{pnatural.identificacion}}</h4>
         </div>
 

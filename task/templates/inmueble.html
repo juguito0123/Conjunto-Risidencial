@@ -10,24 +10,28 @@
         class="card card-body bg-secondary"
       >
         {% csrf_token %}
+        <p class="text-white font-weight-bold">Propietario:</p>
         <input
           type="text"
           name="propietario"
           placeholder="Nombre del propietario"
           class="form-control mb-2"
         />
+        <p class="text-white font-weight-bold">Apartamento:</p>
         <input
           type="text"
           name="apartamento"
           placeholder="#apartamento"
           class="form-control mb-2"
         />
+        <p class="text-white font-weight-bold">Residente:</p>
         <input
           type="text"
           name="residente"
           placeholder="Nombre del Residente"
           class="form-control mb-2"
         />
+        <p class="text-white font-weight-bold">Placa:</p>
         <input
           type="text"
           name="placa"
@@ -45,9 +49,13 @@
         class="card card-body text-black mt-2 mb-2 d-flex flex-row justify-content-between"
       >
         <div>
-          <h3>{{inmueble.propietario}}</h3>
+          <h3 class="text-danger  font-weight-bold">Propietario:</h3>
+          <h4>{{inmueble.propietario}}</h4>
+          <h3 class="text-danger  font-weight-bold">Apartamento:</h3>
           <h4>{{inmueble.apartamento}}</h4>
+          <h3 class="text-danger  font-weight-bold">Residente:</h3>
           <h4>{{inmueble.residente}}</h4>
+          <h3 class="text-danger  font-weight-bold">Placa:</h3>
           <h4>{{inmueble.placa}}</h4>
         </div>
 

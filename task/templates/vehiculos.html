@@ -10,24 +10,30 @@
         class="card card-body bg-secondary"
       >
         {% csrf_token %}
+        <p class="text-white font-weight-bold">Marca del vehiculo:</p>
         <input
           type="text"
           name="marca"
           placeholder="Pon la Marca del Vehiculo"
           class="form-control mb-2"
         />
+        <p class="text-white font-weight-bold">Modelo del vehiculo:</p>
         <input
           type="text"
           name="modelo"
           placeholder="Pon el Modelo del Vehiculo"
           class="form-control mb-2"
         />
+        <p class="text-white font-weight-bold">Placa del vehiculo:</p>
         <input
           type="text"
           name="placa"
           placeholder="Pon la Placa del Vehiculo"
           class="form-control mb-2"
         />
+        <p class="text-white font-weight-bold">
+          Id del propietario del Vehiculo:
+        </p>
         <input
           type="text"
           name="dueño"
@@ -44,9 +50,13 @@
         class="card card-body text-black mt-2 mb-2 d-flex flex-row justify-content-between"
       >
         <div>
-          <h3>{{Vehiculo.propietario}}</h3>
+          <h3 class="text-danger font-weight-bold">Propietario:</h3>
+          <h4>{{Vehiculo.propietario}}</h4>
+          <h3 class="text-danger font-weight-bold">Marca:</h3>
           <h4>{{Vehiculo.marca}}</h4>
+          <h3 class="text-danger font-weight-bold">Modelo:</h3>
           <h4>{{Vehiculo.modelo}}</h4>
+          <h3 class="text-danger font-weight-bold">Placa:</h3>
           <h4>{{Vehiculo.placa}}</h4>
         </div>
 
