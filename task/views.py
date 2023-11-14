@@ -1,7 +1,15 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from .models import Apartamento, PJuridica, PNatural, Propietario, Vehiculo, Visitante,Propiedad
+from .models import PQRSD, Apartamento, PJuridica, PNatural, Propietario, Vehiculo, Visitante,Propiedad
 
 # Create your views here.
+
+# Residentes
+def residente(request):
+    pqrsd = PQRSD.objects.all()
+    return render(request,'residentes.html')
+
+# Residentes
+
 
 # Vehiculos
 def list_tasks(request):
@@ -109,3 +117,21 @@ def delete_pNatural(request, pnatural_id):
     return redirect('/pnatural/')
 
 # PNatural
+
+
+# PQRSD
+def pqrsd(request):
+    pqrsd = PQRSD.objects.all()
+    return render(request,'PQRSD.html',{"PQRSD": pqrsd})
+
+def create_pqrsd(request):
+    pqrsd = PQRSD(tIdentificacion=request.POST['tIdentificacion'], identificacion=request.POST['identificacion'], tipoPQRSD=request.POST['tipoPQRSD'], descripcion=request.POST['descripcion'], correo=request.POST['correo'])
+    pqrsd.save()
+    return redirect('/pqrsd/')
+
+def delete_pqrsd(request, pqrsd_id):
+    pqrsd = PQRSD.objects.get(id=pqrsd_id)
+    pqrsd.delete()
+    return redirect('/pqrsd/')
+
+# PQRSD

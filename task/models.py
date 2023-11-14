@@ -46,6 +46,15 @@ class PNatural(models.Model):
     nombres = models.CharField(max_length=100) 
     apellidos = models.CharField(max_length=100)
     identificacion = models.CharField(max_length=100)
+    
+# PQRSD
+class PQRSD(models.Model):
+    tIdentificacion = models.CharField(max_length=250)
+    identificacion = models.CharField(max_length=100)
+    tipoPQRSD = models.CharField(max_length=100) 
+    descripcion = models.CharField(max_length=250)
+    correo = models.CharField(max_length=250)
+
 
     
     
